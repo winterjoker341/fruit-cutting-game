@@ -3,6 +3,7 @@ import pygame
 import random
 from pygame.locals import *
 from element.game.fruit import Fruit
+from element.game.trail import Trail
 from element.game.ui import Scorer, Counter
 from pages.game_end_page import game_end_page
 from data.fruit import fruits_data
@@ -12,6 +13,7 @@ def is_safe(pos):
 
 def game_page(screen, clock):
     fruits = []
+    trail = Trail((245, 245, 245), 6)
 
     life = Counter("LIFE", 32, [100, 50], (0, 0, 255), 3, -1)
     score = Scorer("SCORE", 32, [350, 50], (0, 0, 255))
@@ -22,6 +24,10 @@ def game_page(screen, clock):
 
         mx, my = pygame.mouse.get_pos()
         press = pygame.mouse.get_pressed()[0]
+
+        if press:
+            trail.add((mx, my))
+        trail.update()
 
         if len(fruits)<1:
             fruits.append(Fruit(random.choice(list(fruits_data.keys())), [random.randint(100, 600), 700], (80, 80)))
@@ -40,6 +46,7 @@ def game_page(screen, clock):
 
         for fruit in fruits:
             fruit.draw(screen)
+        trail.draw(screen)
         life.draw(screen)
         score.draw(screen)
 
