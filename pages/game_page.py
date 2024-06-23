@@ -21,9 +21,12 @@ def game_page(screen, clock):
     life = Counter("LIFE", 32, [100, 50], (0, 0, 255), 3, -1)
     score = Scorer("SCORE", 32, [350, 50], (0, 0, 255))
 
+    background_surf = pygame.image.load("asset/background.png")
+    background_rect = background_surf.get_rect(center = [350, 350])
+
     running = True
     while running:
-        screen.fill((255, 255, 255))
+        screen.blit(background_surf, background_rect)
 
         mx, my = pygame.mouse.get_pos()
         press = pygame.mouse.get_pressed()[0]
