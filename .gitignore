@@ -3,3 +3,6 @@ venv
 
 # compiled python files
 __pycache__
+
+# test file
+test.py
