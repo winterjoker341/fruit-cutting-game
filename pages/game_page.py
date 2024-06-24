@@ -1,4 +1,5 @@
 import sys
+import time
 import pygame
 import random
 from pygame.locals import *
@@ -24,6 +25,8 @@ def game_page(screen, clock):
     background_surf = pygame.image.load("asset/background.png")
     background_rect = background_surf.get_rect(center = [350, 350])
 
+    start_time = time.time()
+
     running = True
     while running:
         screen.blit(background_surf, background_rect)
@@ -35,7 +38,7 @@ def game_page(screen, clock):
             trail.add((mx, my))
         trail.update()
 
-        if len(fruits)<1:
+        if len(fruits)<min(1+(time.time()-start_time)//10, 5):
             fruits.append(Fruit(random.choice(list(fruits_data.keys())), [random.randint(100, 600), 700], (80, 80)))
             fruits_data[fruits[-1].name]["visible"] = True
         for fruit in fruits:
