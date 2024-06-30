@@ -1,4 +1,5 @@
 # Fruit Cutting Game
+
 This is a game where you cut fruit, earn points, and challenge the highest score.
 
 # Install and Run
@@ -23,6 +24,13 @@ Step3. Run the program.
 ```
 $ python main.py
 ```
+
+# Team members
+
+|          |Name        |Nickname      |GitHub                                             |
+|:---------|:-----------|:-------------|:--------------------------------------------------|
+|Designer  |Minkyu Kim  |Herb          |                                                   |
+|Programmer|Seohyeon Kim|winterjoker341|[winterjoker341](https://github.com/winterjoker341)|
 
 # License
 
